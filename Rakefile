@@ -38,8 +38,8 @@ end
 def use_zsh
   print 'switching shells to zsh'
   `brew install zsh`
-  `echo $(which zsh) > /etc/shells`
-  `chsh -s $(which zsh)`
+  `sudo echo $(which zsh) >> /etc/shells`
+  `sudo chsh -s $(which zsh)`
 end
 
 def install_homebrew
