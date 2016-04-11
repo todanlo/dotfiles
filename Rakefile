@@ -7,6 +7,7 @@ task :default do
     delete_file(file) 
     link_file(file)
   end
+  request_sudo
   install_homebrew
   install_vim
   install_vim_plugins
@@ -14,6 +15,10 @@ task :default do
   install_mri
   use_zsh
   make_tmp
+end
+
+def request_sudo
+  `sudo cat /etc/shells`
 end
 
 def delete_file(file)
@@ -33,6 +38,7 @@ end
 def use_zsh
   print 'switching shells to zsh'
   `brew install zsh`
+  `echo $(which zsh) > /etc/shells`
   `chsh -s $(which zsh)`
 end
 
