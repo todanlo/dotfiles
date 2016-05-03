@@ -28,6 +28,7 @@ Plugin 'godlygeek/tabular'          " Align text
 Plugin 'vim-scripts/loremipsum'     " Lorem ipsum
 
 " Syntax
+Plugin 'Shutnik/jshint2.vim'        " JSHint
 Plugin 'mattn/emmet-vim'            " html/css
 Plugin 'kchmck/vim-coffee-script'   " Coffeescript
 Plugin 'tpope/vim-rails'            " Rails
@@ -37,6 +38,7 @@ Plugin 'eslint/eslint'              " E6
 Plugin 'dsawardekar/ember.vim'      " Emberjs
 Plugin 'mustache/vim-mustache-handlebars' " Handlebars
 Plugin 'rust-lang/rust.vim'         " rustlang
+Plugin 'scrooloose/syntastic'       " Syntax highlighter
 
 " Colors
 Plugin 'nanotech/jellybeans.vim'
@@ -90,6 +92,19 @@ nnoremap <c-l> <c-w>l
 " Enable built-in matchit plugin
 runtime macros/matchit.vim
 " ================
+
+"============= SYNTASTIC
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"===== no more node_modules in drawer
+let NERDTreeIgnore = ['\.node_modules\/']
 
 let mapleader = ","
 

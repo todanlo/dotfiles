@@ -13,6 +13,7 @@ task :default do
   install_vim_plugins
   install_chruby
   install_mri
+  install_node
   use_zsh
   make_tmp
 end
@@ -39,7 +40,7 @@ def use_zsh
   print 'switching shells to zsh'
   `brew install zsh`
   `sudo echo $(which zsh) >> /etc/shells`
-  `sudo chsh -s $(which zsh)`
+  `sudo chsh -s $(which zsh) $(whoami)`
 end
 
 def install_homebrew
@@ -60,7 +61,18 @@ def install_mri
     puts "Instaling ruby, this isn't the fastest thing in the world."
     `ruby-install ruby`
   else
-    print " (skipping)\n"
+    print " (skipping installing ruby)\n"
+  end
+end
+
+def install_node
+  print "install Node? (y/n)"
+  if gets.chomp == "y"
+    puts "Instaling nodejs via brew"
+    `brew install node`
+    `npm g gulp node-cli -g`
+  else
+    print " (skipping installing node)\n"
   end
 end
 
