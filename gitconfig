@@ -1,6 +1,6 @@
 [user]
-  name = Jim OKelly
-  email = jim@devschool.rocks
+  name = Thompson Hollo
+  email = thompson.hollo@gmail.com
 
 [color]
   diff = auto
@@ -31,7 +31,7 @@
   enabled = 1
 
 [github]
-  user = JimOKelly
+  user = todanlo
 
 [merge]
   ff = only
